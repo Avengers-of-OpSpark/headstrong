@@ -8,6 +8,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   watch: true,
+  devtool: 'eval-source-map',
+  stats: {
+    excludeModules: /node_modules/,
+  },
   module: {
     rules: [
       {
@@ -16,17 +20,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: [ '@babel/preset-env', '@babel/preset-react' ]
           }
         }
       },
       {
         test: /\.(css)$/,
-        use: ['style-loader', 'css-loader'],
+        use: [ 'style-loader', 'css-loader' ],
       },
       {
         test: /\.jpg$/,
-        use: ['file-loader']
+        use: [ 'file-loader' ]
       }
     ]
   }
